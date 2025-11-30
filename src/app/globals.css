@@ -1,26 +1,141 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: "inter", sans-serif;
+
+
+  background: radial-gradient(circle at center, rgba (0,0,0,0.5) 0%, #000 80%),
+  url('/pokerfield.png');
+  background-size: cover;
+  background-position: center;
+}
+
+
+.poker-container {
+  min-height: 100vh;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  backdrop-filter: blur(6px);
+}
+
+
+.poker-header {
+  margin-bottom: 40px;
+}
+
+/* Neon Tittel */
+.poker-title {
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+
+  color: #ffe9a9;
+  text-shadow: 
+  0 0 8px #ffdd80,
+  0 0 10px #ffcc33,
+  0 0 20px #ffb300,
+  0 0 40px #ff9900;
+
+
+  animation: vipGlow 3s infinite alternate ease-in-out;
+}
+
+
+
+@keyframes vipGlow {
+  from {
+    text-shadow: 
+    0 0 6px #ffdd80,
+    0 0 12px #ffcc33,
+    0 0 20px #ffb300;
+    }
+  to {
+    text-shadow: 
+    0 0 10px #ffe9a9,
+    0 0 20px #ffd166,
+    0 0 40px #ffb300,
+    0 0 80px #ffaa00;
+  } 
+}
+
+
+.poker-button {
+  padding: 14px 32px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+
+
+  background: linear-gradient(135deg, #026b42, #00a85a);
+  color: #fff;
+
+
+  box-shadow: 
+  0 0 10px #00ff9d80,
+  inset 0 0 8px #009f6680;
+
+
+  transition: 0.15s ease;
+  cursor: pointer;
+}
+
+.poker-button:hover {
+  transform: scale(1.05);
+  box-shadow: 
+  0 0 16px #00ff9d,
+  inset 0 0 10px #00c77a;
+}
+
+
+.poker-box {
+  width: 100%;
+  max-width: 480px;
+  background: rgba(15, 15, 15, 0.8);
+  padding: 30px;
+  border-radius: 16px;
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  box-shadow:
+  0 0 20px rgba(255, 255, 0, 0.05),
+  0 0 30px rgba(255, 215, 0, 0.2)
+}
+
+
+.ai-action {
+  font-size: 1.6rem;
+  color: #ffd54f;
+  font-weight: bold;
+  text-shadow: 0 0 10px #ffbf00;
+}
+
+.winner-box {
+  padding-top: 10px;
+  border-top: 1px solid #444;
+}
+
+.winner {
+  font-size: 2.2rem;
+  font-weight: 900;
+}
+
+.winner.player {
+  color: #4caf50;
+  text-shadow: 0 0 10px #4caf50aa;
+}
+
+.winner.ai {
+  color: #e53935;
+  text-shadow: 0 0 10px #ff6b6baa;
+}
+
+.winner.tie {
+  color: #bbb;
 }
