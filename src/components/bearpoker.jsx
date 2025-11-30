@@ -8,7 +8,7 @@ export default function BearPoker() {
 
     async function deal() {
       setLoading(true);
-      const res = await fetch("http://localhost:8000/deal")
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/deal`)
       const data = await res.json();
       setHand (data);
       setLoading(false);
@@ -21,7 +21,7 @@ export default function BearPoker() {
       </header>
 
 
-      <section className='poker-button-section'>
+      <section className='poker-button'>
         <button onClick={deal} disabled={loading} className=''>
             {loading ? "Dealer..." : "Deal Hand"}
         </button>

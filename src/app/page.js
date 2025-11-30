@@ -5,7 +5,7 @@ import BearPoker from '@/components/bearpoker';
 export default function page() {
   return (
     <main>
-        <BearPoker />
+        <BearPoker />;
       
     </main>
   )
