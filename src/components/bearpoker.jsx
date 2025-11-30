@@ -8,27 +8,27 @@ export default function BearPoker() {
 
     async function deal() {
       setLoading(true);
-      const res = await fetch("")
+      const res = await fetch("http://localhost:8000/deal")
       const data = await res.json();
       setHand (data);
       setLoading(false);
         
     }
   return (
-    <main className=''>
-      <header className=''>
-         <h1 className=''>Bear HoldEm VIP</h1>        
+    <main className='poker-container'>
+      <header className='poker-header'>
+         <h1 className='poker-title'>Bear HoldEm VIP</h1>        
       </header>
 
 
-      <section className=''>
+      <section className='poker-button-section'>
         <button onClick={deal} disabled={loading} className=''>
             {loading ? "Dealer..." : "Deal Hand"}
         </button>
       </section>
     
     {hand && (
-        <article className=''>
+        <article className='poker-box'>
             <section>
                 <h2>Dine kort</h2>
                 <p>{hand.player.join(" ")}</p>
@@ -49,11 +49,11 @@ export default function BearPoker() {
 
             <section>
                 <h2> AI move</h2>
-                <p className=''>{hand.ai_action}</p>
+                <p className='ai-action'>{hand.ai_action}</p>
             </section>
 
 
-            <footer className=''>
+            <footer className='winner-box'>
                 <h2>Vinner</h2>
                 <p className={`winner ${hand.winner}`}>{hand.winner}</p>
             </footer>
