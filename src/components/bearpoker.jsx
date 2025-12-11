@@ -45,36 +45,62 @@ export default function BearPoker() {
         </button>
       </section>
     
-    {hand && (
+    {state && (
         <article className='poker-box'>
             <section>
                 <h2>Dine kort</h2>
-                <p>{hand.player.join(" ")}</p>
+                <p>
+                  {state.players[0].hand
+                  ? state.players[0].hand.join(" ")
+                  : "?? ??"}
+                  </p>
             </section>
 
 
             <section>
-                <h2>AI kort</h2>
-                <p>{hand.ai.join(" ")}</p>
+                <h2>AI Hand</h2>
+                <p>
+                  {state.street === "showdown" 
+                    ? state.players[1].hand.join(" ")
+                    : "?? ??"}
+                  </p>
             </section>
 
 
             <section>
                 <h2>Board</h2>
-                <p>{hand.board.join(" ")}</p>
+                <p>{state.board.join(" ")}</p>
             </section>
 
 
             <section>
-                <h2> AI move</h2>
-                <p className='ai-action'>{hand.ai_action}</p>
+                <h2>Street</h2>
+                <p>{state.street}</p>
             </section>
 
+            <section>
+              <h2>Pot</h2>
+              <p>{state.pot}</p>
+            </section>
 
+          {state.street !== "showdown" && ( 
+            <section className='actions'>
+              <button onClick={() => sendAction("check")}>Check</button>
+              <button onClick={() => sendAction("call")}>Call</button>
+              <button onClick={() => sendAction("raise", 40)}>Raise</button>
+              <button onClick={() => sendAction("fold")}>Fold</button>
+            </section>
+          )}
+
+
+          {state.street === "showdown" && (
             <footer className='winner-box'>
-                <h2>Vinner</h2>
-                <p className={`winner ${hand.winner}`}>{hand.winner}</p>
+                <h2>Winner</h2>
+                <p>{state.showdown?.winner_name}</p>
+                <p>{state.showdown?.winner_hand}</p>
+                <p>Pot: {state.showdown?.pot ?? state.pot}</p>
             </footer>
+            )}
         </article>
     )}    
     </main>
