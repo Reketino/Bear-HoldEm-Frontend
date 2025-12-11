@@ -2,18 +2,36 @@
 import React, { useState } from 'react'
 
 export default function BearPoker() {
-    const [hand, setHand] = useState(null);
+    const [state, setState] = useState(null);
     const [loading, setLoading] = useState(false);
 
 
-    async function deal() {
+    async function startGame() {
       setLoading(true);
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/deal`)
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/start`, {
+        method: "POST",
+      });
       const data = await res.json();
-      setHand (data);
+      setState(data);
       setLoading(false);
-        
     }
+
+
+    async function sendAction(action, amount = 0) {
+      if (!state) return;
+      setLoading(true);
+
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/action?player_id=0&action=${action}&amount=${amount}`,
+        { method: "POST" }
+      );
+
+      const data = await res.json();
+      setState(data);
+      setLoading(false);
+    }
+
+    
   return (
     <main className='poker-container'>
       <header className='poker-header'>
