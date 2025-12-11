@@ -1,6 +1,6 @@
 "use client";
 import React from 'react'
-import BearPoker from '@/components/bearpoker';
+import BearPoker from '@/components/poker/bearpoker';
 
 export default function page() {
   return (
