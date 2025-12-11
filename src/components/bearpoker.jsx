@@ -31,7 +31,7 @@ export default function BearPoker() {
       setLoading(false);
     }
 
-    
+
   return (
     <main className='poker-container'>
       <header className='poker-header'>
@@ -40,8 +40,8 @@ export default function BearPoker() {
 
 
       <section className='poker-button'>
-        <button onClick={deal} disabled={loading} className=''>
-            {loading ? "Dealer..." : "Deal Hand"}
+        <button onClick={startGame} disabled={loading} className=''>
+            {loading ? "Starter..." : "Start Game"}
         </button>
       </section>
     
