@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from 'react'
+import Card from './card';
 
 export default function BearPoker() {
     const [state, setState] = useState(null);
@@ -49,27 +50,31 @@ export default function BearPoker() {
         <article className='poker-box'>
             <section>
                 <h2>Dine kort</h2>
-                <p>
-                  {state.players[0].hand
-                  ? state.players[0].hand.join(" ")
-                  : "?? ??"}
-                  </p>
+                <div className='flex gap-2'>
+                  {state.players[0].hand.map((c, i) => (
+                    <Card key={i} code={c} />
+                  ))}
+                  </div>
             </section>
 
 
             <section>
                 <h2>AI Hand</h2>
-                <p>
+                <div className='flex gap-2'>
                   {state.street === "showdown" 
-                    ? state.players[1].hand.join(" ")
-                    : "?? ??"}
-                  </p>
+                    ? state.players[1].hand.map((c, i) => <Card key={i} code={c} />)
+                    : [0, 1].map((i) => <Card key={i} hidden />)}
+                  </div>
             </section>
 
 
             <section>
                 <h2>Board</h2>
-                <p>{state.board.join(" ")}</p>
+                <div className='flex gap-2'>
+                  {state.board.map((c, i) => (
+                    <Card key={i} code={c} />
+                  ))}
+                  </div>
             </section>
 
 
@@ -84,7 +89,7 @@ export default function BearPoker() {
             </section>
 
           {state.street !== "showdown" && ( 
-            <section className='actions'>
+            <section className='actions flex gap-2 mt-4'>
               <button onClick={() => sendAction("check")}>Check</button>
               <button onClick={() => sendAction("call")}>Call</button>
               <button onClick={() => sendAction("raise", 40)}>Raise</button>
@@ -94,7 +99,7 @@ export default function BearPoker() {
 
 
           {state.street === "showdown" && (
-            <footer className='winner-box'>
+            <footer className='winner-box mt-6'>
                 <h2>Winner</h2>
                 <p>{state.showdown?.winner_name}</p>
                 <p>{state.showdown?.winner_hand}</p>
