@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import Card from './card';
 import Hand from './hand';
+import HandStrength from './handstrength';
 
 export default function BearPoker() {
     const [state, setState] = useState(null);
@@ -52,7 +53,7 @@ export default function BearPoker() {
 
 
             <section>
-                <h2>Dine kort</h2>
+                <h2>Your Hand</h2>
                 <Hand cards={state.players[0].hand} />
             </section>
 
@@ -96,15 +97,20 @@ export default function BearPoker() {
 
 
           {state.street === "showdown" && (
+            <>
+              <HandStrength
+              showdown={state.showdown}
+              strength={state.showdown.hand_strength}
+              />
+
             <footer className='winner-box mt-6'>
-                <h2>Winner</h2>
-                <p>{state.showdown?.winner_name}</p>
-                <p>{state.showdown?.winner_hand}</p>
-                <p>Pot: {state.showdown?.pot ?? state.pot}</p>
+              <h2>Pot</h2>
+                <p>{state.showdown?.pot ?? state.pot}</p>
             </footer>
-            )}
+           </>
+            )}  
         </article>
-    )}    
+        )}
     </main>
   );
 }

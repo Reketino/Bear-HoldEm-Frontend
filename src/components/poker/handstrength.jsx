@@ -1,23 +1,37 @@
+"use client";
+import React from "react";
+
+export default function HandStrength({ showdown }) {
+  if (!showdown) return null;
+
+  const strength = showdown.hand_strength;
+
+  if (!strength || !Array.isArray(strength)) {
+    return (
+        <main className="mt-4 p-4 bg-neutral-900/40 rounded-lg border border-red-700">
+            <p className="text-red-400 font-bold">We have lost hand strength in the backend⚠️</p>
+        </main>
+    );
+  }
 
 
-export default function HandStrength() {
   return (
     <main className="mt-4 p-4 bg-neutral-900/40 rounded-lg border border-neutral-700">
-      <h2 className="text-xl font-bold mb-2">Hånd Styrke</h2>
-
-      {players.map((p) => (
+      <h2 className="text-xl font-bold mb-2">Strength Of Hand</h2>
+    
+    {strength.map((p) => (
         <section key={p.id} className="mb-2">
             <p className="font-semibold">
                 {p.name}:{" "}
             <span className="text-amber-400">{p.hand_name}</span>
             </p>
         </section>
-      ))}
+    ))}
 
     <section className="mt-3 p-3 bg-black/40 rounded-lg">
-    <h3 className="font-bold text-green-400">Vinner</h3>
+    <h3 className="font-bold text-green-400">Winner</h3>
     <p className="text-lg">
-       🏆 {showdown.winner_name} -{" "}
+       🏆 {showdown.winner_name} -
        <span className="text-blue-400">{showdown.winner_hand}</span> 
     </p>
     </section>
