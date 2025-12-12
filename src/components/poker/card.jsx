@@ -8,7 +8,7 @@ export default function Card({ code, hidden = false }) {
 
 
   return (
-    <main className=" w-20 h-32 relative">
+    <main className="relative w-16 h-24 md:w-20 md:h-32 card-animate">
     <Image
     src={src}
     alt={`Card ${code}`}
