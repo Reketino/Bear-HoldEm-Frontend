@@ -139,3 +139,43 @@ body {
 .winner.tie {
   color: #bbb;
 }
+
+
+
+/* Animation for "deal-in" */
+@keyframes deal-in {
+  from { 
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.card-animate {
+  animation: deal-in 0.25s ease-out forwards;
+}
+
+
+/* Flip animation when "showdown" */
+.card-wrapper {
+  perspective: 800px;
+}
+
+.card-flip {
+  position: relative;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+}
+
+.card-flip-flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  backface-visibility: hidden;
+  position: absolute;
+  inset: 0;
+}
