@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react'
 import Card from './card';
+import Hand from './hand';
 
 export default function BearPoker() {
     const [state, setState] = useState(null);
@@ -48,33 +49,29 @@ export default function BearPoker() {
     
     {state && (
         <article className='poker-box'>
+
+
             <section>
                 <h2>Dine kort</h2>
-                <div className='flex gap-2'>
-                  {state.players[0].hand.map((c, i) => (
-                    <Card key={i} code={c} />
-                  ))}
-                  </div>
+                <Hand cards={state.players[0].hand} />
             </section>
 
 
             <section>
                 <h2>AI Hand</h2>
-                <div className='flex gap-2'>
-                  {state.street === "showdown" 
-                    ? state.players[1].hand.map((c, i) => <Card key={i} code={c} />)
-                    : [0, 1].map((i) => <Card key={i} hidden />)}
-                  </div>
+                <Hand
+                cards={
+                  state.street === "showdown"
+                  ? state.players[1].hand
+                  : ["back", "back"]
+                }
+                />
             </section>
 
 
             <section>
                 <h2>Board</h2>
-                <div className='flex gap-2'>
-                  {state.board.map((c, i) => (
-                    <Card key={i} code={c} />
-                  ))}
-                  </div>
+                <Hand cards={state.board} />
             </section>
 
 
