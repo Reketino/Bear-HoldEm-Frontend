@@ -1,19 +1,8 @@
 "use client";
 import React from "react";
 
-export default function HandStrength({ showdown }) {
-  if (!showdown) return null;
-
-  const strength = showdown.hand_strength;
-
-  if (!strength || !Array.isArray(strength)) {
-    return (
-        <main className="mt-4 p-4 bg-neutral-900/40 rounded-lg border border-red-700">
-            <p className="text-red-400 font-bold">We have lost hand strength in the backend⚠️</p>
-        </main>
-    );
-  }
-
+export default function HandStrength({ showdown,strength }) {
+  if (!showdown || !strength) return null;
 
   return (
     <main className="mt-4 p-4 bg-neutral-900/40 rounded-lg border border-neutral-700">
@@ -32,7 +21,9 @@ export default function HandStrength({ showdown }) {
     <h3 className="font-bold text-green-400">Winner</h3>
     <p className="text-lg">
        🏆 {showdown.winner_name} -
-       <span className="text-blue-400">{showdown.winner_hand}</span> 
+       <span className="text-blue-400">
+        {showdown.winner_hand}
+        </span> 
     </p>
     </section>
     </main>
