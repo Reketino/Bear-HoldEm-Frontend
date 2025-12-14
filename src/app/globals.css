@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+ /* ===== Poker Base ===== */
 body {
   margin: 0;
   padding: 0;
@@ -25,11 +26,15 @@ body {
 }
 
 
-.poker-header {
-  margin-bottom: 40px;
+.table-header {
+  position: absolute;
+  top: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
 }
 
-/* Neon Tittel */
+/* ===== Neon Tittel ===== */
 .poker-title {
   font-size: 4rem;
   font-weight: 900;
@@ -46,8 +51,6 @@ body {
 
   animation: vipGlow 3s infinite alternate ease-in-out;
 }
-
-
 
 @keyframes vipGlow {
   from {
@@ -97,15 +100,20 @@ body {
 
 
 .poker-box {
+  position: relative;
   width: 100%;
-  max-width: 480px;
-  background: rgba(15, 15, 15, 0.8);
-  padding: 30px;
-  border-radius: 16px;
-  border: 2px solid rgba(255, 215, 0, 0.3);
+  max-width: 900px;
+  height: 520px;
+
+
+  background: radial-gradient(circle at center, #145a32, #0b3d2e); 
+  border-radius: 999px;
+  border: 8px solid #0f0f0f;
+
+
   box-shadow:
-  0 0 20px rgba(255, 255, 0, 0.05),
-  0 0 30px rgba(255, 215, 0, 0.2)
+  inset 0 0 60px rgba(0, 0, 0, 0.7),
+  0 20 60px rgba(0, 0, 0, 0.9);
 }
 
 
