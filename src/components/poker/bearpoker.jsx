@@ -55,8 +55,7 @@ export default function BearPoker() {
             D
           </header>
 
-            <section>
-                <h2>Your Hand</h2>
+            <section className='player you-seat'>
                 <Hand cards={state.players[0].hand} />
             </section>
 
@@ -73,8 +72,8 @@ export default function BearPoker() {
 
 
             <section className='board-center'>
-                <h2>Board</h2>
                 <Hand cards={state.board} />
+                <p className='pot-text'>{state.pot}</p>
             </section>
 
 
@@ -83,13 +82,9 @@ export default function BearPoker() {
                 <p>{state.street}</p>
             </section>
 
-            <section>
-              <h2>Pot</h2>
-              <p>{state.pot}</p>
-            </section>
-
+            
           {state.street !== "showdown" && ( 
-            <section className='actions flex gap-2 mt-4'>
+            <section className='action-row'>
               <button onClick={() => sendAction("check")}>Check</button>
               <button onClick={() => sendAction("call")}>Call</button>
               <button onClick={() => sendAction("raise", 40)}>Raise</button>
