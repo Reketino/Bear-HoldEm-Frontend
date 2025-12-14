@@ -51,6 +51,9 @@ export default function BearPoker() {
     {state && (
         <article className='poker-box'>
 
+          <header className='dealer-chip'>
+            D
+          </header>
 
             <section>
                 <h2>Your Hand</h2>
