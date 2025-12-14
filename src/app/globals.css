@@ -14,7 +14,7 @@ body {
   background-position: center;
 }
 
-
+/* ===== Poker Container Position ===== */
 .poker-container {
   min-height: 100vh;
   padding: 40px;
@@ -26,6 +26,8 @@ body {
 }
 
 
+
+/* ===== Headder Positioning ===== */
 .table-header {
   position: absolute;
   top: -70px;
@@ -34,7 +36,9 @@ body {
   text-align: center;
 }
 
-/* ===== Neon Tittel ===== */
+
+
+/* ===== Neon Tittel STYLING ===== */
 .poker-title {
   font-size: 4rem;
   font-weight: 900;
@@ -51,7 +55,7 @@ body {
 
   animation: vipGlow 3s infinite alternate ease-in-out;
 }
-
+/* ===== TITLE GLOW ===== */
 @keyframes vipGlow {
   from {
     text-shadow: 
@@ -69,6 +73,8 @@ body {
 }
 
 
+
+/* ===== START BUTTON STYLING ===== */
 .poker-button {
   padding: 14px 32px;
   font-size: 1.3rem;
@@ -90,7 +96,7 @@ body {
   transition: 0.15s ease;
   cursor: pointer;
 }
-
+/* ===== START BUTTON HOVER STYLING ===== */
 .poker-button:hover {
   transform: scale(1.05);
   box-shadow: 
@@ -99,6 +105,8 @@ body {
 }
 
 
+
+/* ===== Content Box ===== */
 .poker-box {
   position: relative;
   width: 100%;
@@ -116,7 +124,7 @@ body {
   0 20 60px rgba(0, 0, 0, 0.9);
 }
 
-
+/* ===== AI / PLAYER TEXT STYLING ===== */
 .ai-action {
   font-size: 1.6rem;
   color: #ffd54f;
@@ -124,6 +132,8 @@ body {
   text-shadow: 0 0 10px #ffbf00;
 }
 
+
+/* ===== WINNER STYLING ===== */
 .winner-box {
   padding-top: 10px;
   border-top: 1px solid #444;
