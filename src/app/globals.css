@@ -128,8 +128,31 @@ body {
   box-shadow: 
   0 2px 6px rgba(0, 0, 0, 0.8)
   inset 0 0 4px rgba(0, 0, 0, 0.3);
+}
 
-  z-index: 5;
+
+/* ===== CARD POSITIONING ON TABLE ===== */
+.board-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+
+  display: flex;
+  gap: 10px;
+
+
+  padding: 10px 16px;
+  border-radius: 12px;
+
+
+  background: rgba(0,0,0,0.25);
+  box-shadow: 
+  inset 0 0 20px rgba(0, 0, 0, 0.4),
+  0 0 12px rgba(0, 0, 0, 0.3);
+  
+ z-index: 2; 
 }
 
 
@@ -158,6 +181,12 @@ body {
   color: #ffd54f;
   font-weight: bold;
   text-shadow: 0 0 10px #ffbf00;
+}
+
+/* ===== AI HAND STYLING ===== */
+.ai-hand {
+  transform: rotate(180deg) scale(0.95);
+  opacity: 0.95;
 }
 
 

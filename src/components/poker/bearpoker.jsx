@@ -63,7 +63,7 @@ export default function BearPoker() {
 
             <section>
                 <h2>AI Hand</h2>
-                <Hand
+                <Hand className ="ai-hand"
                 cards={
                   state.street === "showdown"
                   ? state.players[1].hand
@@ -73,7 +73,7 @@ export default function BearPoker() {
             </section>
 
 
-            <section>
+            <section className='board-center'>
                 <h2>Board</h2>
                 <Hand cards={state.board} />
             </section>
