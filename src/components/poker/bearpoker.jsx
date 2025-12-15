@@ -100,7 +100,7 @@ export default function BearPoker() {
               strength={state.showdown.hand_strength}
               />
 
-            <footer className='winner-box mt-6'>
+            <footer className='winner-box'>
               <h2>Pot</h2>
                 <p>{state.showdown?.pot ?? state.pot}</p>
             </footer>
