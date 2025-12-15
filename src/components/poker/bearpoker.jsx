@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import Card from './card';
 import Hand from './hand';
 import HandStrength from './handstrength';
+import WinnerBox from './winnerbox';
 
 export default function BearPoker() {
     const [state, setState] = useState(null);
@@ -100,10 +101,10 @@ export default function BearPoker() {
               strength={state.showdown.hand_strength}
               />
 
-            <footer className='winner-box'>
-              <h2>Pot</h2>
-                <p>{state.showdown?.pot ?? state.pot}</p>
-            </footer>
+         <WinnerBox
+         winner={state.showdown.winner_name}
+         hand={state.showdown.winner_hand}
+         />
            </>
             )}  
         </article>
