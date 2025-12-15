@@ -39,11 +39,12 @@ body {
 /* ===== ACTION ROW POSITIONING ===== */
 .action-row {
   position: absolute;
-  bottom: 80px;
-  left: 70%;
-  transform: translateX(-40%);
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  gap: 12px;
+  gap: 14px;
+  z-index: 15;
 }
 
 
@@ -219,29 +220,98 @@ body {
 
 /* ===== WINNER STYLING ===== */
 .winner-box {
+  position: relative;
+  z-index: 20;
+
+  margin-top: 16px;
+  padding: 14px 18px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.65),
+    rgba(0, 0, 0, 0.85)
+  );
+
+  border-radius: 12px;
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  
+  box-shadow: 
+  0 0 18px rgba(255, 215, 0, 0.15);
+  inset: 0 0 10px rgba(0, 0, 0, 0,6);
+
+  text-align: center;
+}
+
+
+.hand-strength-overlay {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 30;
+
+  width: 360px;
+  padding: 18px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0.9)
+  );
+
+  border-radius: 14px;
+  border: 1px solid rgba(255, 215, 0, 0.25);
+
+  box-shadow: 
+  0 0 25px rgba(255, 215, 0, 0.25),
+  inset 0 0 12px rgba(0, 0, 0, 0,6);
+
+  backdrop-filter: blur(6px);
+}
+
+.hand-strength-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: #ffe082;
+  text-align: center;
+}
+
+.hand-strength-list p {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+}
+
+.player-name {
+  color: #ddd;
+}
+
+.hand-name {
+  color: #ffca28;
+  font-weight: 700;
+}
+
+.winner-box {
+  margin-top: 14px;
   padding-top: 10px;
-  border-top: 1px solid #444;
+  border-top:  1px solid rgba(255, 255, 255, 0.15);
+  text-align: center;
 }
 
-.winner {
-  font-size: 2.2rem;
-  font-weight: 900;
-}
-
-.winner.player {
+.winner-box h3 {
   color: #4caf50;
-  text-shadow: 0 0 10px #4caf50aa;
+  font-weight: 800;
+  margin-bottom: 4px;
 }
 
-.winner.ai {
-  color: #e53935;
-  text-shadow: 0 0 10px #ff6b6baa;
+.winner-box span {
+  display: block;
+  color: #90caf9;
+  font-weight: 700;
 }
-
-.winner.tie {
-  color: #bbb;
-}
-
 
 /* Animation for "deal-in" */
 @keyframes deal-in {
