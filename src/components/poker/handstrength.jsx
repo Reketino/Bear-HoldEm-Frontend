@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 
-export default function HandStrength({ showdown,strength }) {
+export default function HandStrength({ strength }) {
   if (!strength) return null;
 
   return (
