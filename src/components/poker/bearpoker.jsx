@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from 'react'
-import Card from './card';
 import Hand from './hand';
 import HandStrength from './handstrength';
 import WinnerBox from './winnerbox';

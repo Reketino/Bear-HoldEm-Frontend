@@ -88,8 +88,8 @@ body {
 /* ===== START BUTTON STYLING ===== */
 .poker-button {
   position: absolute;
-  bottom: 80px;
-  left: 870px;
+  bottom: 120px;
+  left: 865px;
   transform: translateX(3%);
 
   padding: 14px 32px;
